@@ -10,7 +10,7 @@ import java.util.List;
 public class MVCController {
 
     private MVCSQLite dataBase;
-    private List<String> tasks;
+    private ArrayList<String> tasks;
 
     public MVCController(Context app_context) {
         tasks = new ArrayList<String>();
@@ -35,7 +35,7 @@ public class MVCController {
         dataBase.deleteTask(null);
     }
 
-    public List<String> getTasks() {
+    public ArrayList<String> getTasks() {
         Cursor c = dataBase.loadAllTasks();
         tasks.clear();
         if (c != null) {

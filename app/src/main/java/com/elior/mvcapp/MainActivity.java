@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNewTask;
     private EditText etNewTask;
     private MVCController controller;
+    private ArrayList<String> tasks;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populateTasks() {
-        final List<String> tasks = controller.getTasks();
+        tasks = controller.getTasks();
         lvTask.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks.toArray(new String[]{})));
         lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
