@@ -11,7 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         initUI();
         populateTasks();
+        btnAddTask();
     }
 
     private void initUI() {
@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         etNewTask = findViewById(R.id.etNewTask);
 
         controller = new MVCController(this);
-
-        btnNewTask.setOnClickListener(handleNewTaskEvent);
     }
 
     private void populateTasks() {
@@ -53,24 +51,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private final View.OnClickListener handleNewTaskEvent = new View.OnClickListener() {
-        @Override
-        public void onClick(final View view) {
-            controller.addTask(etNewTask.getText().toString());
-            populateTasks();
-        }
-    };
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
+    private void btnAddTask() {
+        btnNewTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.addTask(etNewTask.getText().toString());
+                populateTasks();
+            }
+        });
     }
 
 }
