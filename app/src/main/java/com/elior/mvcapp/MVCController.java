@@ -17,17 +17,17 @@ public class MVCController {
         dataBase = new MVCSQLite(app_context);
     }
 
-    public void addTask(final String title) {
+    public void addTask(String title) {
         final ContentValues data = new ContentValues();
         data.put("title", title);
         dataBase.addTask(data);
     }
 
-    public void deleteTask(final String title) {
+    public void deleteTask(String title) {
         dataBase.deleteTask("title='" + title + "'");
     }
 
-    public void deleteTask(final long id) {
+    public void deleteTask(long id) {
         dataBase.deleteTask("id='" + id + "'");
     }
 
