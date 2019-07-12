@@ -36,7 +36,7 @@ final class MVCSQLite {
         database.insert(MVCSQLite.TABLE_NAME, null, data);
     }
 
-    public void deleteTask(final String field_params) {
+    public void deleteTask(String field_params) {
         database.delete(MVCSQLite.TABLE_NAME, field_params, null);
     }
 
