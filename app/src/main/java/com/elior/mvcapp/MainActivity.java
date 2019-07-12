@@ -1,7 +1,9 @@
 package com.elior.mvcapp;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         lvTask.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks.toArray(new String[]{})));
         lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final TextView v = (TextView) view;
                 controller.deleteTask(v.getText().toString());
                 populateTasks();
