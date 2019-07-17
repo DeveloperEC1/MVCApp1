@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final TextView v = (TextView) view;
+                TextView v = (TextView) view;
                 controller.deleteTask(v.getText().toString());
                 populateTasks();
             }
